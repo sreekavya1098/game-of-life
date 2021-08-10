@@ -1,10 +1,15 @@
 pipeline {
    agent { label 'GOL' }
+   triggers {
+       cron('H * * * *')
+       pollSCM('* * * * *')
+       
+   }
     stages {
         stage('SCM') {
             steps {
                 // Get some code from a GitHub repository
-                git branch : 'master', url : "https://github.com/sreekavya1098/game-of-life.git"
+                git branch : 'master', url : 'https://github.com/sreekavya1098/game-of-life.git'
   
             }
         }
@@ -19,7 +24,7 @@ pipeline {
                 // failed, record the test results and archive the jar file.
                 success {
                     //junit '**/TEST-*.xml'
-                    archiveArtifacts '**/*.war'
+                    archive '**/*.war'
             }
                
         }
