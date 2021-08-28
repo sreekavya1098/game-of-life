@@ -39,7 +39,7 @@ pipeline {
             }
         }
         stage('devSever'){
-            agent { label 'UBUNTU, ' }
+            agent { label 'UBUNTU,' }
             steps{
                 unstash name: 'golwar'
             }
