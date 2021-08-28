@@ -8,9 +8,9 @@ pipeline {
     stages {
         stage('SCM') {
             steps {
-                //sh 'GIT URL is ${GIT_URL}'
+                sh 'GIT URL is ${GIT_URL}'
                 // Get some code from a GitHub repository
-                git branch : "${params.BRANCH}", url : 'https://github.com/sreekavya1098/game-of-life.git'
+                git branch : 'master', url : 'https://github.com/sreekavya1098/game-of-life.git'
   
             }
         }
