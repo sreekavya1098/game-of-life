@@ -39,7 +39,7 @@ pipeline {
             }
         }
         stage('devSever'){
-            agent { label 'UBUNTU' }
+            agent { label 'UBUNTU, ' }
             steps{
                 unstash name: 'golwar'
             }
@@ -51,18 +51,10 @@ pipeline {
             junit '**/TEST-*.xml'
            // mail subject: 'BUILD Completed Successfully '+env.BUILD_ID, to: 'devops@qt.com', from: 'jenkins@qt.com', body: 'EMPTY BODY'
         }
-        failure {
-           // mail subject: 'BUILD Failed '+env.BUILD_ID+'URL is '+env.BUILD_URL, to: 'devops@qt.com', from: 'jenkins@qt.com', body: 'EMPTY BODY'
-        }
+
         always {
             echo "Finished"
         }
-        changed {
-            echo "Changed"
-        }
-        unstable {
-           // mail subject: 'BUILD Unstable '+env.BUILD_ID+'URL is '+env.BUILD_URL, to: 'devops@qt.com', from: 'jenkins@qt.com', body: 'EMPTY BODY'
-
-        }
+        
     }
 }
