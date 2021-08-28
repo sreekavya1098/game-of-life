@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('SCM') {
             steps {
-                mail subject : 'Build started' +env.BUILD_ID, to: 'sreekavya586@gmail.com', from: 'jenkins@build.com'
+                mail subject : 'Build started' +env.BUILD_ID, to: 'sreekavya586@gmail.com', from: 'jenkins@build.com',body: 'Empty Body'
                 git branch : 'master', url : 'https://github.com/sreekavya1098/game-of-life.git'
   
             }
@@ -28,10 +28,10 @@ pipeline {
                 success {
                     //junit '**/TEST-*.xml'
                     archive '**/*.war'
-                    mail subject : 'Build completed successfully' +env.BUILD_ID, to: 'sreekavya586@gmail.com', from: 'jenkins@build.com'
+                    mail subject : 'Build completed successfully' +env.BUILD_ID, to: 'sreekavya586@gmail.com', from: 'jenkins@build.com', body: 'Empty Body'
             }
             failure {
-                mail subject : 'Build failed' +env.BUILD_ID + 'URL is '+env.BUILD_URL, to: 'sreekavya586@gmail.com', from: 'jenkins@build.com'
+                mail subject : 'Build failed' +env.BUILD_ID + 'URL is '+env.BUILD_URL, to: 'sreekavya586@gmail.com', from: 'jenkins@build.com', body: 'Empty Body'
             }
                
         }
