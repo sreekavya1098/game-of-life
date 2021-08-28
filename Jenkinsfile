@@ -42,10 +42,10 @@ pipeline {
         success {
             archive '**/gameoflife.war'
             junit '**/TEST-*.xml'
-            mail subject: 'BUILD Completed Successfully '+env.BUILD_ID, to: 'sreekavya1098@gmail.com', from: 'sreekavya586@gmail.com', body: 'EMPTY BODY'
+            mail subject: 'BUILD Completed Successfully '+env.BUILD_ID, to: 'devops@qt.com', from: 'jenkins@qt.com', body: 'EMPTY BODY'
         }
         failure {
-            mail subject: 'BUILD Failed '+env.BUILD_ID+'URL is '+env.BUILD_URL, to: 'sreekavya1098@gmail.com', from: 'sreekavya586@gmail.com', body: 'EMPTY BODY'
+            mail subject: 'BUILD Failed '+env.BUILD_ID+'URL is '+env.BUILD_URL, to: 'devops@qt.com', from: 'jenkins@qt.com', body: 'EMPTY BODY'
         }
         always {
             echo "Finished"
@@ -54,7 +54,7 @@ pipeline {
             echo "Changed"
         }
         unstable {
-            mail subject: 'BUILD Unstable '+env.BUILD_ID+'URL is '+env.BUILD_URL, to: 'sreekavya1098@gmail.com', from: 'sreekavya586@gmail.com', body: 'EMPTY BODY'
+            mail subject: 'BUILD Unstable '+env.BUILD_ID+'URL is '+env.BUILD_URL, to: 'devops@qt.com', from: 'jenkins@qt.com', body: 'EMPTY BODY'
 
         }
     }
