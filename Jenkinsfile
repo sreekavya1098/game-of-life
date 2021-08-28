@@ -17,7 +17,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo env.GIT_URL
-                timeout(time:10 units: 'MINUTES'){
+                timeout(time:10, units: 'MINUTES'){
                 sh 'mvn clean package'
                 }
             }
