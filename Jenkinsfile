@@ -38,9 +38,9 @@ pipeline {
                 
             }
         }
-        stage('devSever'){
+        stage('devserver'){
             agent { label 'UBUNTU,'}
-            steps{
+            steps {
                 unstash name: 'golwar'
             }
         }
