@@ -8,8 +8,7 @@ pipeline {
     stages {
         stage('SCM') {
             steps {
-                //sh 'GIT URL is ${GIT_URL}'
-                // Get some code from a GitHub repository
+                mail subject : 'Build started' +env.BUILD_ID, to: 'sreekavya586@gmail.com', from: 'jenkins@build.com'
                 git branch : 'master', url : 'https://github.com/sreekavya1098/game-of-life.git'
   
             }
@@ -29,6 +28,10 @@ pipeline {
                 success {
                     //junit '**/TEST-*.xml'
                     archive '**/*.war'
+                    mail subject : 'Build completed successfully' +env.BUILD_ID, to: 'sreekavya586@gmail.com', from: 'jenkins@build.com'
+            }
+            failure {
+                mail subject : 'Build failed' +env.BUILD_ID + 'URL is '+env.BUILD_URL, to: 'sreekavya586@gmail.com', from: 'jenkins@build.com'
             }
                
         }
