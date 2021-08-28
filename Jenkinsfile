@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('SCM') {
             steps {
-                sh 'GIT URL is ${GIT_URL}'
+                //sh 'GIT URL is ${GIT_URL}'
                 // Get some code from a GitHub repository
                 git branch : 'master', url : 'https://github.com/sreekavya1098/game-of-life.git'
   
@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo env.GIT_URL
+                echo env.GIT_URLi
                 sh 'mvn clean package'
             }
         } 
